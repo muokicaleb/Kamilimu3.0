@@ -1,10 +1,10 @@
 """
-Author: Caleb Muoki
-email: muokithedeveloper@gmail.com
+################  Name: Caleb Muoki                   #####################################
+################  email: muokithedeveloper@gmail.com ######################################
+###########################################################################################
 
 A program that will determine the result of a rock paper scissors game
 given Player one and player 2 choices.
-
 The rules of the game:
 Scissors beat paper
 paper beats rock
@@ -27,32 +27,35 @@ Paper               Scissors        Player 2
 
 """
 
-# A list of only valid inputs
-choices = ["rock", "paper", "scissors"]
+
+# function to validate user input
+def validate(userInput):
+    # change  input to lowercase incase upcase entered
+    userInput.lower()
+
+    # A list of only valid inputs
+    choices = ["rock", "paper", "scissors"]
+
+    # validate  input using a while loop
+    while userInput not in choices:
+        print "This is not a valid object selection"
+        NewInput = raw_input("Enter a valid input ")
+        userInput = NewInput.lower()
+
+    return userInput
+
 
 # ask for player1 input
 player1 = raw_input("Player 1?  ")
 
-# change player1 input to lowercase incase upcase entered
-playerOne = player1.lower()
-
-# validate player1 input
-while playerOne not in choices:
-    print "This is not a valid object selection"
-    player1 = raw_input("Player 1?  ")
-    playerOne = player1.lower()
+# declare variable  and assign to output of validate function
+playerOne = validate(player1)
 
 # ask for player2 input
 player2 = raw_input("Player 2?  ")
 
-# change player2 input to lowercase incase upcase entered
-playerTwo = player2.lower()
-
-# validate player2 input
-while playerTwo not in choices:
-    print "This is not a valid object selection"
-    player2 = raw_input("Player 2?  ")
-    playerTwo = player2.lower()
+# declare variable  and assign to output of validate function
+playerTwo = validate(player2)
 
 # to determine the winnner based on the rules of the game
 # and the truth table above
